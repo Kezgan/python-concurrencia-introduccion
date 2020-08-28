@@ -8,10 +8,15 @@ En `dormilones.py` vimos tres ejemplos básicos de ejecución:
 
 Entonces responda:
 - ¿Por qué los segundos que se imprimen que pasaron son 2, 0 y 1 (aprox.) respectivamente?
-    + En el secuencial son 2 segundos aproximadamente porque el código se ejecuta línea por línea. Primero inicia el contador, luego se ejecutan los dos dormir() que hacen que el contador espere 2 segundos, y al final el contador finaliza. En el ejemplo con threads se ejecuta el código de forma concurrente (múltiples hilos). Por último, el ejemplo con threads "secuencial" se ejecuta de forma concurrente pero utilizando join(), haciendo que primero finalice el conteo de t1 y t2.
+    + En el secuencial son 2 segundos aproximadamente porque el código se ejecuta línea por línea. Primero inicia el contador, luego se ejecutan los dos dormir() que hacen que el contador espere 2 segundos, y al final el contador finaliza.
+    En el ejemplo con threads se ejecuta el código de forma concurrente (múltiples hilos), finalizando la ejecución sin importar que todavía no haya terminado la ejecución de los hilos t1 y t2.
+    Por último, el ejemplo 3 se ejecuta de forma concurrente "secuencial" utilizando join(), haciendo que el código espere a que finalice la tarea de los hilos t1 y t2, que terminarían aproximadamente al mismo tiempo.
 - ¿Cuántos hilos o threads hay en cada caso?
+    + En el primer caso hay un solo hilo (MainThread), y en los dos últimos hay tres hilos: MainThread y los dos hilos t1 y t2.
 - Los últimos dos ejemplos tienen la misma cantidad de threads cada uno, ¿cuál sería la diferencia entonces?
+    + La diferencia es que en el segundo ejemplo de threads se utiliza join(), que hace que el código espere a que finalice la tarea de los hilos t1 y t2.
 - En el último ejemplo, ¿qué desventaja o desventajas le ve al uso del `join()`?
+    + 
 
 
 # Muchos threads
