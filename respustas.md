@@ -33,7 +33,7 @@ Mirá el código y fijate de entender la sintaxis.
 
 ## Parte 2
 Ahora corré el script: ¿por qué tarda lo que tarda? 
-
+  + Lo que sucede en el código es que al entrar al primer for se crean los 10 hilos aproximadamente al mismo tiempo con un tiempo de sleep de 1.5 segundos. Al entrar al segundo for se hace join a los hilos creados previamente, y como finalizarán también aproximadamente al mismo tiempo el tiempo final que tardarán es de 1.5. Si en vez de 10 hilos creamos 20 tardarían lo mismo.
 
 # Intercalación en concurrencia
 
