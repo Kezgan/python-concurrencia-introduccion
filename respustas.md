@@ -45,13 +45,20 @@ Ahora corré el script: ¿por qué tarda lo que tarda?
 
 Mirando el código de `contadorConcurrente.py`, pero sin ejecutarlo:
 - Al ejecutar la función `cuenta()`, ¿cuántas veces se ejecuta el `for` que tiene adentro, y qué hace cada iteración del `for`?
+  + El for se ejecuta la cantidad de veces que dice MAX_COUNT, pero distribuido en la cantidad de threads.
+  + Cada iteración suma 1 en la variable counter.
 - ¿Es verdad que cada thread lanza una ejecución de la función `cuenta()`?
+  + Si, cuenta() se ejecutará el numero de threads que hayan.
 - ¿Es verdad que se está esperando a que termine cada thread?
+  + El join() espera a que termine el primer thread para luego ejecutar el segundo, pero el print muestra en pantalla hasta donde llegó la variable counter, sin esperar a que el segundo thread termine.
 - ¿Cúal te parece que es el valor que se imprime de `counter`?
+  + El valor counter siempre va a ser 1000000, pero lo que va a imprimir siempre va a ser un valor entre 500000 y 1000000, ya que print no espera a que ambos threads finalicen.
 
 Ahora corré `contadorConcurrente.py`:
 - Correlo varias veces, ¿qué observás que pasa?
+  + Cada vez que se corre el valor varía.
 - ¿Por qué está pasando eso que observás?
+  + Al finalizar el primer thread puede pasar que se haya ejecutado una parte del segundo thread, mostrando el print un valor que varía entre 500000 y 1000000.
 
 
 # ¿Secuencial clásico, concurrente o paralelo?
@@ -60,6 +67,7 @@ Para cada una de las siguiente situaciones, decidí si es secuencial clásico, c
 
 - Cuál persona de un total de 50 corre más rápido una maratón.
     - opción 1) Cada persona corre secuencialmente en la pista, y medimos cada tiempo.
+      + 
     - opción 2) Todas las personas corren en la misma pista, y la que llega primero listo.
 		- Preguntas: ¿hay algún recurso compartido? ¿genera problemas?
     - opción 3) Cada persona corre en una pista distinta, todas al mismo tiempo.
